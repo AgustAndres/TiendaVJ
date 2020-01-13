@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="css/videojuegos.css">
+
+        <link rel="stylesheet" href="css/mdb.min.css">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+        <title>Tienda VJ</title>
+    </head>
+    <body>
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="/">
+                <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                Tienda VJ</a>
+
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="basicExampleNav">
+
+                <!-- Links -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link active" href="/consolas">Consolas</a>
+
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-item nav-link active" href="/videojuegos">Videojuegos
+                            <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <!-- Dropdown -->
+                    <ul class="navbar-nav mr-auto">
+                        <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">Accesorios</a>
+                            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Controles</a>
+                                <a class="dropdown-item" href="#">Auriculares</a>
+                                <a class="dropdown-item" href="#">Skins</a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </ul>
+                <!-- Links -->
+
+                <form class="form-inline">
+                    <div class="md-form my-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
+                    </div>
+                </form>
+            </div>
+            <!-- Collapsible content -->
+
+        </nav>
+        <!--/.Navbar-->
+
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Videojuegos</li>
+            </ol>
+        </nav>
+
+        <div class="container mt-4  mb-3 vj-destacados ">
+            <div class="row">
+                <div th:each="juego : ${videojuegos}" class="col-md-3 mt-4">
+                    <div class="card text-center">
+                        <img th:src="${juego.imagenUrl}" class="card-img-top rounded" alt="...">
+                        <div class="card-body">
+                            <h5 th:text="${juego.nombre} +' $'+${juego.precio}" class="card-title"></h5>
+                            <p th:text="${juego.descripcion}" class="card-text"></p>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"  th:data-target="${juego.id}">
+                                Ver detalles
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" th:id="${juego.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="button" class="btn btn-primary">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="page-footer font-small bg-dark pt-4">
+            <div class="container-fluid text-center text-md-left">
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <h5 class="text-uppercase">Tienda VJ</h5>
+                        <p>La mejor tienda de videojuegos de todo el mercado,contamos con: precios imbatibles, garantías extendidas, sorteos semanales, 
+                            novedades de manera anticipada, multiples puntos de venta y envíos a todo el país.
+                            Más de 30 años en el rubo confirman nuestra calidad de servicio.
+                        </p>
+                    </div>
+                    <hr class="clearfix w-100 d-md-none pb-3">
+                    <div class="col-md-3 mb-md-0 mb-3">
+                        <h5 class="text-uppercase">Categorias</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="/">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="/consolas">Consolas</a>
+                            </li>
+                            <li>
+                                <a href="/videojuegos">Videojuegos</a>
+                            </li>
+                            <li>
+                                <a href="#!">Accesorios</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 mb-md-0 mb-3">
+                        <h5 class="text-uppercase">Redes sociales</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="btn-floating btn-fb mx-1">
+                                    <i class="fab fa-facebook-f"> </i> Tienda VJ
+                                </a>
+                            </li>
+                            <li >
+                                <a class="btn-floating btn-tw mx-1">
+                                    <i class="fab fa-twitter"> </i> TiendaVJ@tiendaVJ.com
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn-floating btn-gplus mx-1">
+                                    <i class="fab fa-instagram"> </i> Tienda VJ
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn-floating btn-li mx-1">
+                                    <i class="fab fa-linkedin-in"> </i> Tienda VJ
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="#"> TiendaVj.com</a>
+            </div>
+        </footer>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>
