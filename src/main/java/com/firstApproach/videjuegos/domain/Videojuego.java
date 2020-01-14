@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -15,7 +16,35 @@ public class Videojuego {
     private String descripcion;
     private String imagenUrl;
     private Double precio;
+    private Integer fecha;
+    @ManyToOne
+    private Distribuidor distribuidor;
+    @ManyToOne
+    private Desarrollador desarrollador;
 
+    public Integer getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Integer fecha) {
+        this.fecha = fecha;
+    }
+    
+    public Desarrollador getDesarrollador() {
+        return desarrollador;
+    }
+
+    public void setDesarrollador(Desarrollador desarrollador) {
+        this.desarrollador = desarrollador;
+    }
+    
+    public Distribuidor getDistribuidor() {
+        return distribuidor;
+    }
+
+    public void setDistribuidor(Distribuidor distribuidor) {
+        this.distribuidor = distribuidor;
+    }
     
     public Integer getId() {
         return id;

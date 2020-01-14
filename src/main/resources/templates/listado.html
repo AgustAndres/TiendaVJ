@@ -69,7 +69,8 @@
 
                 <form class="form-inline">
                     <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                        <button class="btn  btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
                     </div>
                 </form>
             </div>
@@ -92,25 +93,29 @@
                     <div class="card text-center">
                         <img th:src="${juego.imagenUrl}" class="card-img-top rounded" alt="...">
                         <div class="card-body">
-                            <h5 th:text="${juego.nombre} +' $'+${juego.precio}" class="card-title"></h5>
+                            <p class="text-left" ><span th:text="'$'+${juego.precio}" class="badge badge-pill badge-info"></span></p>
+                            <h5 th:text="${juego.nombre}" class="card-title"></h5>
+
                             <p th:text="${juego.descripcion}" class="card-text"></p>
-                            <button type="button" class="btn btn-primary" data-toggle="modal"  th:data-target="${juego.id}">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"  th:data-target="'#modal-videojuego-' + ${juego.id}">
                                 Ver detalles
                             </button>
                         </div>
                     </div>
 
-                    <div class="modal fade" th:id="${juego.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" th:id="'modal-videojuego-' + ${juego.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <h5 class="modal-title" th:text="${juego.nombre} +'('+${juego.fecha}+') $'+${juego.precio}" id="exampleModalLabel"></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    ...
+                                    <p th:text="${juego.descripcion}"></p>
+                                    <p>Distribuidor: <a target="_blank" th:text="${juego.distribuidor.nombre}" th:href="${juego.distribuidor.sitioWeb}"></a></p>
+                                    <p>Desarrollador: <a target="_blank" th:text="${juego.desarrollador.nombre}" th:href="${juego.desarrollador.sitioWeb}"></a></p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
