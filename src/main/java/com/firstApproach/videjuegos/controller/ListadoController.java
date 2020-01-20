@@ -21,14 +21,7 @@ public class ListadoController {
     }
     
     
-/*
-    public ListadoController(ConsolaService consolaService) {
-        this.consolaService = consolaService;
-    }
-    
-    public ListadoController(VideojuegoService videoJuegoService) {
-        this.videoJuegoService = videoJuegoService;
-    }*/
+
     @RequestMapping("/")
     public String inicio(){
         return "inicio";
@@ -42,7 +35,7 @@ public class ListadoController {
     
     @RequestMapping("/consolas")
     public String listarConsolas(Model model){
-        List<Consola> destacadosConsolas = consolaService.buscarDestacados();
+        List<Consola> destacadosConsolas = consolaService. buscarDestacados();
         model.addAttribute("consolas", destacadosConsolas);
         return "listadoConsolas";
     }
