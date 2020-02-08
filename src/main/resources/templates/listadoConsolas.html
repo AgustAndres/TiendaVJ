@@ -66,10 +66,10 @@
 
                 </ul>
                 <!-- Links -->
-
-                <form class="form-inline">
+                <form th:action="@{/buscar}" class="form-inline">
                     <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
+                        <input class="form-control mr-sm-2" name="q" type="search" placeholder="Buscar" aria-label="Search">
+                        <button class="btn  btn btn-outline-primary my-2 my-sm-0" value="search" type="submit">Buscar</button>
                     </div>
                 </form>
             </div>

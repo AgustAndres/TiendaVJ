@@ -67,45 +67,49 @@
                 </ul>
                 <!-- Links -->
 
-                <form class="form-inline">
+                <form th:action="@{/buscar}" class="form-inline">
                     <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
+                        <input class="form-control mr-sm-2" name="q" type="search" placeholder="Buscar" aria-label="Search">
+                        <button class="btn  btn btn-outline-primary my-2 my-sm-0" value="search" type="submit">Buscar</button>
                     </div>
                 </form>
             </div>
-            <!-- Collapsible content -->
+            <!-- 
+            http://localhost:8000/buscar?q=fif
+            http://localhost:8000/?q=fif
+            Collapsible content -->
 
         </nav>
         <!--/.Navbar-->
 
-        
-        
-        
-        
+
+
+
+
         <!--fixed-bottom-->
         <div class="fixed-bottom">
-            
-        <main role="main" class="mt-4"> 
-            <div class="container marketing">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <img class="rounded-circle border border-dark" src="img/icono-plata.png" alt="Generic placeholder image" width="70" height="70">
-                        <h4>Precio</h4>
-                        <p> Los mejores precio del mercado.</p>
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-lg-4">
-                        <img class="rounded-circle border border-dark" src="img/icono-garantia.png" alt="Generic placeholder image" width="70" height="70">
-                        <h4>Garantía</h4>
-                        <p>Las garantías más extensas y completas.</p>
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-lg-4">
-                        <img class="rounded-circle border border-dark" src="img/icono-ubicacion.png" alt="Generic placeholder image" width="70" height="70">
-                        <h4>Ubicación</h4>
-                        <p>Locales en todas las provincias.</p>
-                    </div><!-- /.col-lg-4 -->
-                </div><!-- /.row -->
-            </div>
-        </main>
+
+            <main role="main" class="mt-4"> 
+                <div class="container marketing">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <img class="rounded-circle border border-dark" src="img/icono-plata.png" alt="Generic placeholder image" width="70" height="70">
+                            <h4>Precio</h4>
+                            <p> Los mejores precio del mercado.</p>
+                        </div><!-- /.col-lg-4 -->
+                        <div class="col-lg-4">
+                            <img class="rounded-circle border border-dark" src="img/icono-garantia.png" alt="Generic placeholder image" width="70" height="70">
+                            <h4>Garantía</h4>
+                            <p>Las garantías más extensas y completas.</p>
+                        </div><!-- /.col-lg-4 -->
+                        <div class="col-lg-4">
+                            <img class="rounded-circle border border-dark" src="img/icono-ubicacion.png" alt="Generic placeholder image" width="70" height="70">
+                            <h4>Ubicación</h4>
+                            <p>Locales en todas las provincias.</p>
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+                </div>
+            </main>
             <footer class="page-footer font-small bg-dark pt-4">
                 <div class="container-fluid text-center text-md-left">
                     <div class="row">

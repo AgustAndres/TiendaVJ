@@ -19,21 +19,17 @@
     <body>
         <!--Navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
             <!-- Navbar brand -->
             <a class="navbar-brand" href="/">
                 <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
                 Tienda VJ</a>
-
             <!-- Collapse button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
                     aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <!-- Collapsible content -->
             <div class="collapse navbar-collapse" id="basicExampleNav">
-
                 <!-- Links -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
@@ -42,13 +38,11 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-item nav-link active" href="/consolas">Consolas</a>
-
                     </li>
                     <li class="nav-item active">
                         <a class="nav-item nav-link active" href="/videojuegos">Videojuegos
                             <span class="sr-only">(current)</span></a>
                     </li>
-
                     <!-- Dropdown -->
                     <ul class="navbar-nav mr-auto">
                         <!-- Dropdown -->
@@ -61,31 +55,38 @@
                                 <a class="dropdown-item" href="#">Skins</a>
                             </div>
                         </li>
-
                     </ul>
-
                 </ul>
                 <!-- Links -->
-
-                <form class="form-inline">
+                <form th:action="@{/buscar}" class="form-inline">
                     <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                        <button class="btn  btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+                        <input class="form-control mr-sm-2" name="q" type="search" placeholder="Buscar" aria-label="Search">
+                        <button class="btn  btn btn-outline-primary my-2 my-sm-0" value="search" type="submit">Buscar</button>
                     </div>
                 </form>
             </div>
             <!-- Collapsible content -->
-
         </nav>
         <!--/.Navbar-->
-
-
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Inicio</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Videojuegos</li>
             </ol>
         </nav>
+
+        <div class="container">
+            <div class="dropdown">
+                <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Distribuidor
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li ><a href="/videojuegos">Todos</a></li>
+                    <div th:each="distribuidor : ${distribuid}">
+                        <li><a th:text="${distribuidor.nombre}"  th:href="@{/videojuegosPorDistribuidor(distribuidorId=${distribuidor.id})}"></a></li>
+                    </div>
+                </ul>
+            </div>
+        </div>
 
         <div class="container mt-4  mb-3 vj-destacados ">
             <div class="row">
@@ -95,7 +96,6 @@
                         <div class="card-body">
                             <p class="text-left" ><span th:text="'$'+${juego.precio}" class="badge badge-pill badge-info"></span></p>
                             <h5 th:text="${juego.nombre}" class="card-title"></h5>
-
                             <p th:text="${juego.descripcion}" class="card-text"></p>
                             <button type="button" class="btn btn-primary" data-toggle="modal"  th:data-target="'#modal-videojuego-' + ${juego.id}">
                                 Ver detalles

@@ -14,6 +14,6 @@ public class ConsolaService {
     }
     
     public List<Consola> buscarDestacados(){
-     return consolaRepository.findAll();
+     return consolaRepository.buscarTodos();
     }
 }

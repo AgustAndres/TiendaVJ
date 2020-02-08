@@ -35,7 +35,7 @@ insert into consola
 ("PlayStation 4", "Some quick example text to build on the card title and make up the bulk of the card's content.", "https://psmedia.playstation.com/is/image/psmedia/ps4-slim-black-two-column-buy-01-en-13nov18_1542102620416?$Icon$", "250"),
 ("Xbox one S", "Some quick example text to build on the card title and make up the bulk of the card's content.", "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE3SQnt?ver=5797&q=90&m=6&h=1445&w=1849&b=%23FFFFFFFF&f=jpg&o=f&aim=true","200"),
 ("Xbox 360", "Some quick example text to build on the card title and make up the bulk of the card's content.", "https://www.traitech.co/wp-content/uploads/2018/05/Xbox360.jpg", "100"),
-("Ninetendo Switch", "Some quick example text to build on the card title and make up the bulk of the card's content.", "https://images-na.ssl-images-amazon.com/images/I/61JnrafZ7zL._AC_SL1457_.jpg", "300");
+("Nintendo Switch", "Some quick example text to build on the card title and make up the bulk of the card's content.", "https://images-na.ssl-images-amazon.com/images/I/61JnrafZ7zL._AC_SL1457_.jpg", "300");
 
 create table distribuidor(
     id int primary key auto_increment,
@@ -72,14 +72,14 @@ create table desarrollador(
 );
 insert into desarrollador
 (id, nombre, sitio_web)values 
-("1" ,"Gearbox Software","www.gearboxsoftware.com"),
-("2" ,"Insomniac Games", "www.insomniacgames.com"),
-("3" ,"SCE Santa Monica Studio", "sms.playstation.com"),
-("4" ,"Mojang AB", "www.mojang.com"),
-("5" ,"Rockstar Games", "www.rockstar.com"),
-("6" ,"From Software", "www.fromsoftware.jp/en/"),
-("7" ,"343 Industries", "www.343industries.com"),
-("8" ,"EA Canada","www.ea.com/careers/careers-overview/vancouver");
+("1" ,"Gearbox Software","https://www.gearboxsoftware.com"),
+("2" ,"Insomniac Games", "https://www.insomniacgames.com"),
+("3" ,"SCE Santa Monica Studio", "https://sms.playstation.com"),
+("4" ,"Mojang AB", "https://www.mojang.com"),
+("5" ,"Rockstar Games", "https://www.rockstar.com"),
+("6" ,"From Software", "https://www.fromsoftware.jp/en/"),
+("7" ,"343 Industries", "https://www.343industries.com"),
+("8" ,"EA Canada","https://www.ea.com/careers/careers-overview/vancouver");
 
 alter table videojuego
 add column desarrollador_id int,
